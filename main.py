@@ -57,7 +57,7 @@ with open(f"files/{username}.mtl", "w") as file:
 
 # Download the texture(s)
 for list in range(len(data["textures"])):
-    print("Downloading textures...                   ",end="\r")
+    print(f"Downloading textures... ({list}/{len(data['textures'])})                  ",end="\r")
     with open(f"files/{username}_{str(list)}.png", "wb") as file:
         file.write(sussion.get(url(data["textures"][list])).content)
 
