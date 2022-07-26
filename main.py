@@ -15,7 +15,7 @@ data = sussion.get(dataURL).json()
 materialData = sussion.get("https://t0.rbxcdn.com/" + data["mtl"])
 objectData = sussion.get("https://t1.rbxcdn.com/" + data["mtl"])
 
-# TODO: rename textures to match the name of the object
+# TODO: #1 rename textures to match the name of the object
 #for list in data["textures"]:
 #    print(list)
 
