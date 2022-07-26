@@ -57,6 +57,6 @@ for list in data["textures"]:
         file.write(sussion.get(url(list)).content)
 
 # TODO: #1 rename textures to match the name of the object
-for list in range(len(data["textures"])):
-   print(list, data["textures"][list])
+#for list in range(len(data["textures"])):
+#   print(list, data["textures"][list])
 
