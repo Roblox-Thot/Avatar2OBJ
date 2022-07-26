@@ -41,6 +41,7 @@ data = sussion.get(dataURL.json()["imageUrl"]).json()
 
 # Download the object file
 with open(f"files/{username}.obj", "wb") as file:
+    print("Downloading object file...                 ", end="\r")
     # Roblox changes this url from time to time, so we have to check for it
     objectData = sussion.get(url(data["obj"]))
     matHeader = bytes(f"mtllib {username}.mtl\n\n", 'utf-8')
@@ -48,13 +49,17 @@ with open(f"files/{username}.obj", "wb") as file:
 
 # Download the material file
 with open(f"files/{username}.mtl", "wb") as file:
+    print("Downloading material file...              ", end="\r")
     materialData = sussion.get(url(data["mtl"]))
     file.write(materialData.content)
 
 # Download the texture(s)
 for list in data["textures"]:
+    print("Downloading textures...                 ",end="\r")
     with open(f"files/{list}", "wb") as file:
         file.write(sussion.get(url(list)).content)
+
+print("Done, files are in files folder.")
 
 # TODO: #1 rename textures to match the name of the object
 #for list in range(len(data["textures"])):
