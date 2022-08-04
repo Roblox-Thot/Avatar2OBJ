@@ -37,7 +37,11 @@ elif dataURL.status_code != 200:
     exit()
 
 # Grab the data needed to download files later
-data = sussion.get(dataURL.json()["imageUrl"]).json()
+try:
+    data = sussion.get(dataURL.json()["imageUrl"]).json()
+except:
+    dataURL = sussion.get("https://thumbnails.roblox.com/v1/users/avatar-3d?userId=" + userID)
+    data = sussion.get(dataURL.json()["imageUrl"]).json()
 
 # Download the object file
 with open(f"files/{username}.obj", "wb") as file:
