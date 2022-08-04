@@ -56,7 +56,6 @@ with open(f"files/{username}.mtl", "w") as file:
     print("Downloading material file...              ", end="\r")
     materialData = sussion.get(url(data["mtl"])).text
     for list in range(len(data["textures"])):
-        print(data["textures"][list], f"{username}_{str(list)}.png")
         materialData = materialData.replace(data["textures"][list], f"{username}_{str(list)}.png")
     file.write(materialData)
 
