@@ -2,7 +2,7 @@ from requests import session
 
 session = session()
 
-def url(hash) -> str:
+def url(hash:str) -> str:
     """
     Returns the url needed from Roblox's hash.
 
